@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
+      <div class="jumbotron">
+        <h1>Todo List 待辦清單</h1>
+        <p clss="intor">待辦清單列表，根據任務到期日排序您的待辦事項。</p>
+        <a class="btn btn-primary btn-lg" <%= link_to '新增', new_todo_path %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">     
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Due Date</th>
+            <th>Function</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @todos.each do|todo| %> 
+            <tr>
+              <td><%= todo.title %></td>
+              <td><%= todo.due_date %></td>
+              <td>
+                <a class="glyphicon glyphicon-edit" <%= link_to 'edit', edit_todo_path(todo) %> 
+                <%= delete_button(todo) %> 
+              </td>    
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>     
+</div>
